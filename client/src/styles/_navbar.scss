@@ -1,0 +1,58 @@
+@import "./variables";
+@import "./mixins";
+
+$nav-height: 3.4rem;
+$nav-height-scrolled: 2rem;
+$font-size-logo: 1.5rem;
+$font-size-logo-scrolled: 1.2rem;
+
+.navbar-wrapper {
+  position: fixed;
+  width: 100vw;
+  z-index: 10000;
+}
+
+.navbar-list {
+  list-style-type: none;
+  height: $nav-height;
+  padding: 0 20px;
+  background: $color-1;
+  color: $color-4;
+  transition: all 250ms ease-in-out;
+  @include flexSpace(row, space-between);
+  .logo {
+    width: 30%;
+    font-weight: 600;
+    font-size: $font-size-logo;
+    transition: all 250ms ease-in-out;
+  }
+  .hamburger {
+    @include breakpoint($medium) {
+      display: none;
+    }
+  }
+  .navbar-items {
+    display: none;
+    width: 70%;
+    .navbar-items-list {
+      list-style-type: none;
+      @include flexSpace(row, space-between);
+    }
+    @include breakpoint($medium) {
+      display: block;
+    }
+  }
+}
+
+.is-scrolled {
+  height: $nav-height-scrolled;
+  .logo {
+    font-size: $font-size-logo-scrolled;
+  }
+}
+
+@include breakpoint($medium) {
+  .navbar-list {
+    background: green;
+  }
+}
