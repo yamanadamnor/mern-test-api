@@ -1,5 +1,4 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const router = express.Router();
 const Post = require("../models/Post");
 
@@ -15,7 +14,6 @@ router.get("/", async (req, res) => {
 
 // Submit a post
 router.post("/", async (req, res) => {
-  // console.log(req.body);
   const post = new Post({
     title: req.body.title,
     description: req.body.description
@@ -30,8 +28,7 @@ router.post("/", async (req, res) => {
 });
 
 // Specific post
-router.get("/:postId", async (req, res) => {
-  try {
+router.get("/:postId", async (req, res) => { try {
     const post = await Post.findById(req.params.postId);
     res.json(post);
   } catch (error) {

@@ -1,24 +1,26 @@
 const express = require("express");
 const app = express();
-const cors =  require("cors");
+const cors = require("cors");
 const mongoose = require("mongoose");
 
 require("dotenv/config");
 
 // Middlewares
 // Built body-parser in express
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Cors 
+// Cors
 app.use(cors());
 
 // Import route
 const postsRoute = require("./routes/posts");
 const usersRoute = require("./routes/users");
+const countriesRoute = require("./routes/countries");
 
 app.use("/posts", postsRoute);
 app.use("/users", usersRoute);
+app.use("/countries", countriesRoute);
 
 // Home route
 app.get("/", (req, res) => {
@@ -36,4 +38,4 @@ mongoose.connect(
 );
 
 // Listening to the server
-app.listen(3000);
+app.listen(3001);
