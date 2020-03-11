@@ -3,30 +3,30 @@ import "../styles/_navbar.scss";
 
 function Navbar() {
   const [menuActive, setMenuActive] = useState(false);
-  // const [isScrolled, setScrolled] = useState(false);
+  const [isScrolled, setScrolled] = useState(false);
 
-  // function handleScroll() {
-  //   const scrollTop = window.scrollY;
-  //   scrollTop > 40 ? setScrolled(true) : setScrolled(false);
-  // }
+  function handleScroll() {
+    const scrollTop = window.scrollY;
+    scrollTop > 40 ? setScrolled(true) : setScrolled(false);
+  }
 
   function handleMenuClick() {
     setMenuActive(!menuActive);
     console.log(menuActive);
   }
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // });
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
 
 
   return (
     <nav className="navbar-wrapper">
-      {/* <ul className={`navbar-list ${isScrolled ? "is-scrolled" : ""}`}> */}
-      <ul className={`navbar-list`}>
+      <ul className={`navbar-list ${isScrolled ? "is-scrolled" : ""}`}>
+      {/* <ul className={`navbar-list`}> */}
         <li className="logo">LOGO</li>
         <li className="hamburger-item" onClick={handleMenuClick}>
           <button className={`hamburger hamburger--arrow ${menuActive ? "is-active" : ""}`} type="button">
