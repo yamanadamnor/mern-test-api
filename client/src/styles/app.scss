@@ -1,20 +1,30 @@
 // Variables for fonts and colors
+@import url("../../node_modules/highlight.js/styles/atom-one-dark.css");
+@import "./normalize";
 @import "./variables";
 @import "./mixins";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .App {
+  max-width: 100%;
   background: $color-4;
   font-family: "Poppins", sans-serif;
+  position: relative;
 }
 
 .section {
-  width: 100vw;
-  height: 100vh;
-  @include flexCenter(column);
+  // height: 100vh;
+  padding: 0 20px;
+  &:nth-child(2) {
+    padding-top: 5rem;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .endpoint-ref {
+    margin: 50px 0;
+  }
 }
+
+// .snippet {
+//   max-width: 100%;
+// }
