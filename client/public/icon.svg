@@ -1,0 +1,14 @@
+<svg width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+ <title>logoipsum-4</title>
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="102" width="102" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <circle id="svg_11" fill="#394149" r="10.49" cy="48.67" cx="51.74"/>
+  <circle id="svg_12" fill="#394149" r="10.49" cy="48.67" cx="75.19"/>
+  <rect id="svg_13" fill="#394149" height="20.97" width="20.97" y="38.18" x="17.81"/>
+ </g>
+</svg>

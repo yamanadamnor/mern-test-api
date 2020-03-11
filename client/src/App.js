@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Snippet from "./components/Snippet";
+import Snippets from "./components/Snippet copy";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/app.scss";
@@ -15,6 +16,7 @@ function App() {
         <section className="section">
           <h2>Endpoints</h2>
           <Snippet />
+          {/* <Snippets /> */}
         </section>
         <footer className="section footer">
           <h2>Footer</h2>
