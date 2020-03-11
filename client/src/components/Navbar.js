@@ -1,3 +1,5 @@
+// TODO: include react spring for animations
+
 import React, { useState, useEffect } from "react";
 import "../styles/_navbar.scss";
 
@@ -7,7 +9,7 @@ function Navbar() {
 
   function handleScroll() {
     const scrollTop = window.scrollY;
-    scrollTop > 40 ? setScrolled(true) : setScrolled(false);
+    scrollTop && menuActive === false > 40 ? setScrolled(true) : setScrolled(false);
   }
 
   function handleMenuClick() {
@@ -25,11 +27,11 @@ function Navbar() {
 
   return (
     <nav className="navbar-wrapper">
-      <ul className={`navbar-list ${isScrolled ? "is-scrolled" : ""}`}>
+      <ul className={`navbar-list ${menuActive ? "menu-active": ""} ${isScrolled ? "is-scrolled" : ""}`}>
       {/* <ul className={`navbar-list`}> */}
         <li className="logo">LOGO</li>
         <li className="hamburger-item" onClick={handleMenuClick}>
-          <button className={`hamburger hamburger--arrow ${menuActive ? "is-active" : ""}`} type="button">
+          <button className={`hamburger hamburger--minus ${menuActive ? "is-active" : ""}`} type="button">
             <span className="hamburger-box">
               <span className="hamburger-inner"></span>
             </span>
