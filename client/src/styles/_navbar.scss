@@ -1,34 +1,41 @@
 @import "./variables";
 @import "./mixins";
-
-$nav-height: 3.4rem;
-$nav-height-scrolled: 2rem;
-$font-size-logo: 1.5rem;
-$font-size-logo-scrolled: 1.2rem;
+@import "./hamburgers/hamburgers";
 
 .navbar-wrapper {
   position: fixed;
-  width: 100vw;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 10000;
 }
 
 .navbar-list {
+  margin: 0;
+  padding: 0 20px;
   list-style-type: none;
   height: $nav-height;
-  padding: 0 20px;
   background: $color-1;
   color: $color-4;
   transition: all 250ms ease-in-out;
   @include flexSpace(row, space-between);
   .logo {
-    width: 30%;
+    width: 50%;
     font-weight: 600;
     font-size: $font-size-logo;
     transition: all 250ms ease-in-out;
   }
-  .hamburger {
+  .hamburger-item {
+    overflow: hidden;
+    @include flexCenter(row);
+    max-height: 100%;
+    // background: red;
+    transition: all 250ms ease-in-out;
     @include breakpoint($medium) {
       display: none;
+    }
+    .hamburger {
+      transition: all 250ms ease-in-out;
     }
   }
   .navbar-items {
@@ -48,6 +55,11 @@ $font-size-logo-scrolled: 1.2rem;
   height: $nav-height-scrolled;
   .logo {
     font-size: $font-size-logo-scrolled;
+  }
+  .hamburger-items {
+    .hamburger {
+      height: $nav-height-scrolled;
+    }
   }
 }
 
