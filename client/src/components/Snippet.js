@@ -49,10 +49,10 @@ function Snippet(props) {
                         id="uncontrolled-tab-example"
                       >
                         <Tab eventKey="response" title="Example response">
-                          <Highlight className="snippet">{response}</Highlight>
+                          <Highlight className="snippet json">{response}</Highlight>
                         </Tab>
                         <Tab eventKey="error" title="Example Error">
-                          <Highlight className="snippet">{error}</Highlight>
+                          <Highlight className="snippet json">{error}</Highlight>
                         </Tab>
                       </Tabs>
                       <Highlight className="http snippet">{`${method} ${route.path} HTTP/1.1`}</Highlight>
