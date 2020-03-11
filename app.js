@@ -28,9 +28,9 @@ app.use("/users", usersRoute);
 app.use("/countries", countriesRoute);
 
 // Home route
-app.get("/", (req, res) => {
-  res.json({ message: "We are on home" });
-});
+// app.get("/", (req, res) => {
+//   res.json({ message: "We are on home" });
+// });
 
 // Connect to DB
 mongoose.connect(
