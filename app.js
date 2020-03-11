@@ -1,7 +1,12 @@
+// TODO: faker.js kan användas för att generera fake data
+
 const express = require("express");
 const app = express();
+const router = express.Router();
 const cors = require("cors");
 const mongoose = require("mongoose");
+const endpoints = require("express-list-endpoints");
+
 
 require("dotenv/config");
 
@@ -24,7 +29,7 @@ app.use("/countries", countriesRoute);
 
 // Home route
 app.get("/", (req, res) => {
-  res.send("We are on home");
+  res.json({ message: "We are on home" });
 });
 
 // Connect to DB
@@ -36,6 +41,11 @@ mongoose.connect(
     console.log("connected to db");
   }
 );
+
+app.get("/routes", (req, res) => {
+  const routes = endpoints(app);
+  res.json(routes);
+});
 
 // Listening to the server
 app.listen(3001);
