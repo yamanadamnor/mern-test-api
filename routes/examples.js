@@ -3,7 +3,7 @@
 const express = require("express");
 const router = express.Router();
 const Example = require("../models/Example");
-const http = require("http");
+const needle = require("needle");
 
 // All examples
 router.get("/", async (req, res) => {
@@ -17,38 +17,16 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  http .get("http://localhost:3001/routes", resp => {
-      let routes = "";
+  const example = new Example({
+    response: req.body.response,
+    error: req.body.error
+  });
 
-      // A chunk of data has been recieved.
-      resp.on("data", chunk => {
-        routes += chunk;
-      });
-
-      // The whole response has been received. Print out the result.
-      resp.on("end", () => {
-        // console.log(JSON.parse(data).explanation);
-        routes.map(route => {
-          route.methods.map(method => {
-            let example = new Example({
-              path: route.path,
-              method: method,
-              response: "response",
-              error: "error"
-            });
-            example.save();
-          });
-        });
-      });
-    })
-    .on("error", err => {
-      console.log("Error: " + err.message);
-    });
-
+  const savedExample = await example.save();
   try {
-    res.json({ message: "success" });
-  } catch (error) {
-    res.json({ message: error });
+    res.json(savedExample);
+  } catch (err) {
+    res.json({ message: err });
   }
 });
 
