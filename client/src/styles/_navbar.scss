@@ -1,3 +1,6 @@
+// TODO: Clean up coode
+// TODO fix position absolute on navbar-items
+
 @import "./variables";
 @import "./mixins";
 @import "./hamburgers/hamburgers";
@@ -42,56 +45,45 @@
     }
   }
   .navbar-items {
-    display: none;
-    width: 70%;
+    width: 100%;
     transition: all 250ms ease-in-out;
     padding: $nav-padding-y 0;
-    .navbar-items-list {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      @include flexSpace(row, space-between);
-    }
-    @include breakpoint($medium) {
-      display: block;
-    }
-  }
-}
-
-.menu-active {
-  height: $nav-height-toggled !important;
-  .navbar-items {
+    background: $color-5;
     position: absolute;
-    padding: 20px !important;
-    bottom: 0;
+    padding: 0 20px;
+    top: $nav-height;
     left: 0;
-    // background: red;
-    width: 100%;
-    height: 70%;
-    display: initial;
-    // @include flexCenter(row);
+    height: 0;
+    overflow: hidden;
+    @include breakpoint($medium) {
+      position: static;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      width: 70%;
+    }
+
     .navbar-items-list {
-      // background: blue;
-      height: 100%;
-      width: 50%;
+      margin-top: 20px;
+      position: relative;
+      list-style-type: none;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-start;
+      align-items: flex-end;
+      li {
+        margin: 20px 0;
+      }
+      @include breakpoint($medium) {
+        position: static;
+        justify-content: flex-end;
+        align-items: flex-end;
+        @include flexSpace(row, space-between);
+        margin: auto 0;
+        padding: $nav-padding-y 0;
+        li {
+          margin: auto 0;
+        }
+      }
     }
-  }
-}
-
-.is-scrolled {
-  height: $nav-height-scrolled;
-  .navbar-items {
-    padding: $nav-padding-y-scrolled 0;
-  }
-  .logo {
-    font-size: $font-size-logo-scrolled;
-    padding: $nav-padding-y-scrolled 0;
-  }
-  .hamburger--minus {
-    padding: $nav-padding-y-scrolled 0 !important;
   }
 }

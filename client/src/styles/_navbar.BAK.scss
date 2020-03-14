@@ -1,0 +1,129 @@
+// TODO: Clean up code
+
+@import "./variables";
+@import "./mixins";
+@import "./hamburgers/hamburgers";
+
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+}
+
+.navbar-list {
+  line-height: 1;
+  margin: 0;
+  padding: 0 20px;
+  list-style-type: none;
+  height: $nav-height;
+  background: $color-5;
+  color: $color-4;
+  transition: all 250ms ease-in-out;
+  @include flexSpace(row, space-between);
+  align-items: flex-start;
+  .logo {
+    width: 50%;
+    padding: 1rem 0;
+    max-height: 100%;
+    font-weight: 600;
+    font-size: $font-size-logo;
+    transition: all 250ms ease-in-out;
+  }
+  .hamburger-item {
+    overflow: hidden;
+    @include flexCenter(row);
+    max-height: 100%;
+    transition: all 250ms ease-in-out;
+    @include breakpoint($medium) {
+      display: none;
+    }
+    .hamburger {
+      transition: all 250ms ease-in-out;
+    }
+  }
+  .navbar-items {
+    display: none;
+    overflow: hidden;
+    width: 70%;
+    transition: all 250ms ease-in-out;
+    padding: $nav-padding-y 0;
+    .navbar-items-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      @include flexSpace(row, space-between);
+    }
+    @include breakpoint($medium) {
+      display: block;
+    }
+  }
+}
+
+    .navbar-items {
+      position: absolute;
+      padding: 20px !important;
+      bottom: 0;
+      left: 0;
+      // background: red;
+      width: 100%;
+      height: 70%;
+      display: initial;
+      // @include flexCenter(row);
+      .navbar-items-list {
+        // background: blue;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+    }
+
+    .menu-active {
+      .navbar-items {
+        display: initial;
+      }
+    }
+
+// =================================================================
+// Backup
+// .menu-active {
+//   .navbar-items {
+//     position: absolute;
+//     padding: 20px !important;
+//     bottom: 0;
+//     left: 0;
+//     // background: red;
+//     width: 100%;
+//     height: 70%;
+//     display: initial;
+//     // @include flexCenter(row);
+//     .navbar-items-list {
+//       // background: blue;
+//       height: 100%;
+//       display: flex;
+//       flex-direction: column;
+//       justify-content: space-between;
+//       align-items: flex-end;
+//     }
+//   }
+// }
+
+// .is-scrolled {
+//   height: $nav-height-scrolled;
+//   .navbar-items {
+//     padding: $nav-padding-y-scrolled 0;
+//   }
+//   .logo {
+//     font-size: $font-size-logo-scrolled;
+//     padding: $nav-padding-y-scrolled 0;
+//   }
+//   .hamburger--minus {
+//     padding: $nav-padding-y-scrolled 0 !important;
+//   }
+// }
+
+// Backup
+// =================================================================
