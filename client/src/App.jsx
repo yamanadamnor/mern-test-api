@@ -1,10 +1,10 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-import Snippet from "./components/Snippet";
-import Snippets from "./components/Snippet copy";
+import React from 'react';
+import Navbar from './components/Navbar';
+import Snippet from './components/Snippet';
+// import Snippets from './components/Snippet copy';
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./styles/app.scss";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/app.scss';
 
 function App() {
   return (
