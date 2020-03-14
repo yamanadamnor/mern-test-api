@@ -1,8 +1,8 @@
 // TODO: faker.js kan användas för att generera fake data
+// TODO: Add example routes that returns response and error examples
 
 const express = require("express");
 const app = express();
-const router = express.Router();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const endpoints = require("express-list-endpoints");
@@ -19,13 +19,16 @@ app.use(express.json());
 app.use(cors());
 
 // Import route
-const postsRoute = require("./routes/posts");
-const usersRoute = require("./routes/users");
-const countriesRoute = require("./routes/countries");
+const postsRoutes = require("./routes/posts");
+const usersRoutes = require("./routes/users");
+const countriesRoutes = require("./routes/countries");
+const exampleRoutes = require("./routes/examples");
 
-app.use("/posts", postsRoute);
-app.use("/users", usersRoute);
-app.use("/countries", countriesRoute);
+app.use("/posts", postsRoutes);
+app.use("/users", usersRoutes);
+app.use("/countries", countriesRoutes);
+app.use("/example", exampleRoutes)
+
 
 // Home route
 // app.get("/", (req, res) => {
@@ -42,6 +45,7 @@ mongoose.connect(
   }
 );
 
+// Example routes
 app.get("/routes", (req, res) => {
   const routes = endpoints(app);
   res.json(routes);
