@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const ExampleScheme = mongoose.Schema({
-  schema: {
+  structure: {
     type: {},
     required: true
   },
