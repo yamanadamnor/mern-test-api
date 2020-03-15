@@ -34,33 +34,29 @@ function Snippet() {
     <>
       {
       routes ? routes.map((route, index) => (
-        <React.Fragment key={`${route.path}${index}`}>
-          {route.methods.map((method) => (
-            <div
-              className="endpoint-ref"
-              key={`${method} ${index}`}
-            >
-              <Tabs
-                defaultActiveKey="response"
-                id="uncontrolled-tab-example"
-              >
-                <Tab eventKey="response" title="Example response">
-                  <Highlight className="snippet json">
-                    {response}
-                  </Highlight>
-                </Tab>
+        <div
+          className="endpoint-ref"
+          key={`${route.method} ${index}`}
+        >
+          <Tabs
+            defaultActiveKey="response"
+            id="uncontrolled-tab-example"
+          >
+            <Tab eventKey="response" title="Example response">
+              <Highlight className="snippet json">
+                {response}
+              </Highlight>
+            </Tab>
 
-                <Tab eventKey="error" title="Example Error">
-                  <Highlight className="snippet json">
-                    {error}
-                  </Highlight>
-                </Tab>
-              </Tabs>
+            <Tab eventKey="error" title="Example Error">
+              <Highlight className="snippet json">
+                {error}
+              </Highlight>
+            </Tab>
+          </Tabs>
 
-              <Highlight className="http snippet">{`${method} ${route.path} HTTP/1.1`}</Highlight>
-            </div>
-          ))}
-        </React.Fragment>
+          <Highlight className="http snippet">{`${route.method} ${route.path} HTTP/1.1`}</Highlight>
+        </div>
       ))
         : ''
 }
