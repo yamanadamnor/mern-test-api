@@ -4,6 +4,7 @@ import Highlight from 'react-highlight';
 
 function Snippet() {
   const [routes, setRoutes] = useState();
+
   async function fetchData() {
     // const url = 'http://10.120.8.238:3001/routes';
     const url = 'http://localhost:3001/routes';

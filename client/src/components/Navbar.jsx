@@ -1,18 +1,25 @@
 // TODO: include react spring for animations
 
-import React, { useState } from 'react';
-import { useSpring, animated } from 'react-spring';
+import React, { useState, useRef } from 'react';
+import { useSpring, animated, useChain } from 'react-spring';
 import '../styles/_navbar.scss';
 
 function Navbar() {
   const [menuActive, setMenuActive] = useState(false);
+  const springRef = useRef();
+  const moreProps = useSpring({
+    background: 'red',
+    ref: springRef,
+  });
+
+  const transitionRef = useRef();
 
   function handleMenuClick() {
     setMenuActive(!menuActive);
   }
 
   const styleProps = useSpring({
-    height: '15rem',
+    height: '13rem',
   });
 
   return (
