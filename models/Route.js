@@ -2,12 +2,15 @@ const mongoose = require("mongoose");
 const RouteScheme = mongoose.Schema({
   path: {
     type: String,
-    required: true
+    required: true,
   },
   method: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
+  example: {
+    type: {},
+  },
 });
 
 module.exports = mongoose.model("Route", RouteScheme);
