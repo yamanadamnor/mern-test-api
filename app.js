@@ -45,7 +45,6 @@ mongoose.connect(
 app.get("/seedRoutes", (req, res) => {
   try {
     const routes = endpoints(app);
-
     const url = "http://localhost:3001/routes";
 
     routes.map(route => {

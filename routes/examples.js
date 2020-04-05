@@ -10,7 +10,6 @@ router.get("/", async (req, res) => {
   try {
     const examples = await Example.find();
     res.json(examples);
-    // res.json({message: "hej"});
   } catch (err) {
     res.json({ message: err });
   }
