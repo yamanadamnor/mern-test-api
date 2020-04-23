@@ -11,6 +11,10 @@
   color: $color-3;
   font-family: "Poppins", sans-serif;
   position: relative;
+
+  .main-content {
+    display: grid;
+  }
 }
 
 .section {
@@ -30,7 +34,3 @@
     }
   }
 }
-
-// .snippet {
-//   max-width: 100%;
-// }
