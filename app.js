@@ -26,8 +26,21 @@ app.use("/countries", countriesRoutes);
 app.use("/routes", routesRoutes);
 
 // Connect to DB
+// Backup
+// mongoose.connect(
+//   process.env.DB_CONNECTION,
+//   { useNewUrlParser: true, useUnifiedTopology: true },
+//   (err, db) => {
+//     if (err) throw err;
+//     console.log("connected to db");
+//   }
+// );
+
+const connectionString = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@localhost:${process.env.DB_PORT}/${process.env.DB_NAME}`
+// const connectionString = `mongodb://localhost:${process.env.DB_PORT}/${process.env.DB_NAME}`;
+// console.log(connectionString);
 mongoose.connect(
-  process.env.DB_CONNECTION,
+  connectionString,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err, db) => {
     if (err) throw err;

@@ -1,4 +1,6 @@
 // TODO: include react spring for animations
+// TODO: Refactor to use props.children
+// TODO: Add Navitem component
 
 import React, { useState, useRef } from 'react';
 import { useSpring, animated, useChain } from 'react-spring';
