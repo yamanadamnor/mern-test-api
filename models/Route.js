@@ -5,7 +5,7 @@ const RouteScheme = mongoose.Schema({
     required: true,
   },
   method: {
-    type: String,
+    type: {},
     required: true,
   },
   example: {
