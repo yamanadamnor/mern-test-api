@@ -16,9 +16,10 @@ router.get("/", async (req, res) => {
 
 // submit a route
 router.post("/", async (req, res) => {
+  console.log(req.body);
   const route = new Route({
     path: req.body.path,
-    method: req.body.method
+    method: req.body.method,
   });
 
   const savedRoute = await route.save();
@@ -42,8 +43,8 @@ router.get("/:routeId", async (req, res) => {
 // Delete specific route
 router.delete("/:routeId", async (req, res) => {
   try {
-    const removedRoute = await Route.remove({
-      _id: req.params.routeId
+    const removedRoute = await Route.deleteOne({
+      _id: req.params.routeId,
     });
     res.json(removedRoute);
   } catch (error) {
@@ -55,13 +56,13 @@ router.patch("/:routeId", async (req, res) => {
   try {
     const updatedRoute = await Route.updateOne(
       {
-        _id: req.params.routeId
+        _id: req.params.routeId,
       },
       {
         $set: {
           path: req.body.path,
-          method: req.body.method
-        }
+          method: req.body.method,
+        },
       }
     );
     res.json(updatedRoute);
