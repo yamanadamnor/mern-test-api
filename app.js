@@ -19,21 +19,28 @@ app.use(express.json());
 app.use(cors());
 
 // Import route
-const postsRoutes = require("./routes/posts");
-const usersRoutes = require("./routes/users");
 const countriesRoutes = require("./routes/countries");
-const exampleRoutes = require("./routes/examples");
 const routesRoutes = require("./routes/routes");
 
-app.use("/posts", postsRoutes);
-app.use("/users", usersRoutes);
 app.use("/countries", countriesRoutes);
-app.use("/examples", exampleRoutes);
 app.use("/routes", routesRoutes);
 
 // Connect to DB
+// Backup
+// mongoose.connect(
+//   process.env.DB_CONNECTION,
+//   { useNewUrlParser: true, useUnifiedTopology: true },
+//   (err, db) => {
+//     if (err) throw err;
+//     console.log("connected to db");
+//   }
+// );
+
+const connectionString = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@localhost:${process.env.DB_PORT}/${process.env.DB_NAME}`
+// const connectionString = `mongodb://localhost:${process.env.DB_PORT}/${process.env.DB_NAME}`;
+// console.log(connectionString);
 mongoose.connect(
-  process.env.DB_CONNECTION,
+  connectionString,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err, db) => {
     if (err) throw err;
@@ -45,13 +52,13 @@ mongoose.connect(
 app.get("/seedRoutes", (req, res) => {
   try {
     const routes = endpoints(app);
-    const url = "http://localhost:3001/routes";
+    const url = "http://localhost:3003/routes";
 
-    routes.map(route => {
-      route.methods.map(method => {
+    routes.map((route) => {
+      route.methods.map((method) => {
         let postData = {
           path: route.path,
-          method: method
+          method: method,
         };
         needle.post(url, postData, (needleErr, needleRes) => {});
       });
@@ -62,34 +69,5 @@ app.get("/seedRoutes", (req, res) => {
   }
 });
 
-app.get("/seedExamples", (req, res) => {
-  try {
-    const examples = [
-      {
-        response: "response",
-        error: "error"
-      },
-      {
-        response: "response",
-        error: "error"
-      }
-    ];
-
-    const url = "http://localhost:3001/examples";
-
-    examples.map(example => {
-      let postData = {
-        response: example.response,
-        error: example.error
-      };
-      needle.post(url, postData, (needleErr, needleRes) => {});
-    });
-
-    res.json({ message: "seeding success" });
-  } catch (error) {
-    res.json({ message: error });
-  }
-});
-
 // Listening to the server
-app.listen(3001);
+app.listen(3003);
