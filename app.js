@@ -52,7 +52,7 @@ mongoose.connect(
 app.get("/seedRoutes", (req, res) => {
   try {
     const routes = endpoints(app);
-    const url = "http://localhost:3003/routes";
+    const url = "http://localhost:3001/routes";
 
     routes.map((route) => {
       route.methods.map((method) => {
@@ -70,4 +70,4 @@ app.get("/seedRoutes", (req, res) => {
 });
 
 // Listening to the server
-app.listen(3003);
+app.listen(3001);
