@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 // import Snippet from './components/Snippet';
-import { Sidebar } from './components/Sidebar';
+import Sidebar from './components/Sidebar';
 // import Snippets from './components/Snippet copy';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
