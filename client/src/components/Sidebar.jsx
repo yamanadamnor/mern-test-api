@@ -18,9 +18,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <ul>
         <SidebarItem type="title">
-          <h3>
-            Movies
-          </h3>
+          Movies
         </SidebarItem>
         <li className="sidebar-item sidebar-sublist">
           <ul>
@@ -33,6 +31,9 @@ const Sidebar = () => {
         <li>
 
 
+          <SidebarItem type="title">
+            TV-shows
+          </SidebarItem>
           <ul className="sidebar-item sidebar-sublist">
             <li> GET Shows</li>
             <li> POST Shows</li>
@@ -45,15 +46,17 @@ const Sidebar = () => {
   );
 };
 
-const SidebarItem = (props) => {
-  // console.log(children);
+const SidebarItem = ({ type, children }) =>
+// console.log(children);
 
-  return (
-    <li className= {` sidebar-item ${ props.type == "title" ? "sidebar-title" : ""` }>
-      {props.children}
+  (
+    <li className={` sidebar-item ${type === 'title' ? 'sidebar-title' : ''}`}>
+      <h3>
+
+        {children}
+      </h3>
     </li>
   );
-};
 export {
   Sidebar,
   SidebarItem,
