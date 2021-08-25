@@ -15,7 +15,7 @@
     "express-list-endpoints": "^6.0.0",
     "http": "0.0.0",
     "https": "^1.0.0",
-    "mongoose": "^5.9.3",
+    "mongoose": "^6.0.0",
     "needle": "^2.3.3"
   },
   "devDependencies": {
